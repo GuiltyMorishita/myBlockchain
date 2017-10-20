@@ -1,0 +1,63 @@
+package handler
+
+import (
+	"encoding/json"
+	"net/http"
+	"net/http/httptest"
+	"strings"
+	"testing"
+
+	"github.com/GuiltyMorishita/myBlockchain/blockchain"
+	"github.com/labstack/echo"
+	"github.com/satori/go.uuid"
+	. "github.com/smartystreets/goconvey/convey"
+)
+
+func TestCreateTransaction(t *testing.T) {
+
+	var (
+		newBlockchain = blockchain.NewBlockchain()
+		txJSON        = `{
+		 "sender": "d4ee26eee15148ee92c6cd394edd974e",
+		 "recipient": "someone-other-address",
+		 "amount": 5
+		}`
+	)
+
+	Convey("Transaction creation success", t, func() {
+		e := echo.New()
+		req := httptest.NewRequest(echo.POST, "/transactions/new", strings.NewReader(txJSON))
+		req.Header.Set(echo.HeaderContentType, echo.MIMEApplicationJSON)
+		rec := httptest.NewRecorder()
+		c := e.NewContext(req, rec)
+		h := &Handler{Bc: newBlockchain}
+
+		So(h.CreateTransaction(c), ShouldBeNil)
+		So(rec.Code, ShouldEqual, http.StatusCreated)
+		var resp Response
+		json.Unmarshal(rec.Body.Bytes(), &resp)
+		So(resp["message"].(string), ShouldNotBeBlank)
+	})
+}
+
+func TestMine(t *testing.T) {
+
+	var (
+		newBlockchain = blockchain.NewBlockchain()
+	)
+
+	Convey("Mining success", t, func() {
+		e := echo.New()
+		req := httptest.NewRequest(echo.GET, "/mine", nil)
+		rec := httptest.NewRecorder()
+		c := e.NewContext(req, rec)
+		h := &Handler{Bc: newBlockchain}
+
+		So(h.Mine(c, uuid.NewV4().String()), ShouldBeNil)
+		So(rec.Code, ShouldEqual, http.StatusOK)
+		var resp Response
+		json.Unmarshal(rec.Body.Bytes(), &resp)
+		So(resp["message"].(string), ShouldNotBeBlank)
+		So(int64(resp["index"].(float64)), ShouldBeGreaterThan, 2)
+	})
+}

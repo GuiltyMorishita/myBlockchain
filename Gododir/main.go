@@ -7,6 +7,11 @@ func tasks(p *do.Project) {
 		c.Start("main.go", do.M{"%in": "./"})
 	}).Src("**/*.go").
 		Debounce(300)
+
+	p.Task("test", nil, func(c *do.Context) {
+		c.Start("go test -v ./...", do.M{"%in": "../"})
+	}).Src("**/*.go").
+		Debounce(300)
 }
 
 func main() {

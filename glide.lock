@@ -1,5 +1,5 @@
-hash: 2a9746cfa11fbb89683aa15b8b3390b6a4ae852bd64d91335884f19b6d964e70
-updated: 2017-10-20T12:29:29.910669774+09:00
+hash: b58a0f5a9b41171ce42bedce331188e23e68c4fd94c11ce54543616f563b6995
+updated: 2017-10-20T13:59:23.537991489+09:00
 imports:
 - name: github.com/deckarep/golang-set
   version: fc8930a5e645572ee00bf66358ed3414f3c13b90
@@ -36,6 +36,12 @@ imports:
   version: d9b45f19996c645d38c9266d1f5cf1990e930119
 - name: github.com/satori/go.uuid
   version: 879c5887cd475cd7864858769793b2ceb0d44feb
+- name: github.com/smartystreets/goconvey
+  version: 9e8dc3f972df6c8fcc0375ef492c24d0bb204857
+- name: github.com/stretchr/testify
+  version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
+  subpackages:
+  - assert
 - name: github.com/valyala/bytebufferpool
   version: e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7
 - name: github.com/valyala/fasttemplate
@@ -58,4 +64,12 @@ imports:
   - util
   - watcher
   - watcher/fswatch
-testImports: []
+testImports:
+- name: github.com/davecgh/go-spew
+  version: 6d212800a42e8ab5c146b8ace3490ee17e5225f9
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: d8ed2627bdf02c080bf22230dbb337003b7aba2d
+  subpackages:
+  - difflib

@@ -17,13 +17,15 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	nodeIdentifire := uuid.NewV4().String()
-	blockchain := blockchain.NewBlockchain()
+	h := handler.Handler{
+		Bc:             blockchain.NewBlockchain(),
+		NodeIdentifire: uuid.NewV4().String(),
+	}
 
-	e.POST("/transactions/new", handler.CreateTransaction(blockchain))
-	e.GET("/mine", handler.Mine(blockchain, nodeIdentifire))
-	e.GET("/chain", handler.FullChain(blockchain))
-	e.POST("/nodes/register", handler.RegisterNode(blockchain))
-	e.GET("/nodes/resolve", handler.Consensus(blockchain))
+	e.POST("/transactions/new", h.CreateTransaction)
+	e.GET("/mine", h.Mine)
+	e.GET("/chain", h.FullChain)
+	e.POST("/nodes/register", h.RegisterNode)
+	e.GET("/nodes/resolve", h.Consensus)
 	e.Logger.Fatal(e.Start(":5000"))
 }
