@@ -1,0 +1,61 @@
+hash: 2a9746cfa11fbb89683aa15b8b3390b6a4ae852bd64d91335884f19b6d964e70
+updated: 2017-10-20T12:29:29.910669774+09:00
+imports:
+- name: github.com/deckarep/golang-set
+  version: fc8930a5e645572ee00bf66358ed3414f3c13b90
+- name: github.com/dgrijalva/jwt-go
+  version: dbeaa9332f19a944acb5736b4456cfcc02140e29
+- name: github.com/howeyc/gopass
+  version: bf9dde6d0d2c004a008c27aaee91170c786f6db8
+- name: github.com/labstack/echo
+  version: cec7629194fe4bf83b0c72d9a02d340c7a1468ac
+  subpackages:
+  - middleware
+- name: github.com/labstack/gommon
+  version: 57409ada9da0f2afad6664c49502f8c50fbd8476
+  subpackages:
+  - bytes
+  - color
+  - log
+  - random
+- name: github.com/mattn/go-colorable
+  version: ad5389df28cdac544c99bd7b9161a0b5b6ca9d1b
+- name: github.com/mattn/go-isatty
+  version: a5cdd64afdee435007ee3e9f6ed4684af949d568
+- name: github.com/mgutz/ansi
+  version: 9520e82c474b0a04dd04f8a40959027271bab992
+- name: github.com/mgutz/minimist
+  version: 39eb8cf573ca29344bd7d7e6ba4d7febdebd37a9
+- name: github.com/mgutz/str
+  version: 968bf66e3da857419e4f6e71b2d5c9ae95682dc4
+- name: github.com/mgutz/to
+  version: 00c06406c2dd2e011f153a6502a21473676db33f
+- name: github.com/MichaelTJones/walk
+  version: 4748e29d5718c2df4028a6543edf86fd8cc0f881
+- name: github.com/nozzle/throttler
+  version: d9b45f19996c645d38c9266d1f5cf1990e930119
+- name: github.com/satori/go.uuid
+  version: 879c5887cd475cd7864858769793b2ceb0d44feb
+- name: github.com/valyala/bytebufferpool
+  version: e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7
+- name: github.com/valyala/fasttemplate
+  version: dcecefd839c4193db0d35b88ec65b4c12d360ab0
+- name: golang.org/x/crypto
+  version: 541b9d50ad47e36efd8fb423e938e59ff1691f68
+  subpackages:
+  - acme
+  - acme/autocert
+  - ssh/terminal
+- name: golang.org/x/sys
+  version: 8dbc5d05d6edcc104950cc299a1ce6641235bc86
+  subpackages:
+  - unix
+  - windows
+- name: gopkg.in/godo.v2
+  version: b5fd2f0bef1ebe832e628cfad18ab1cc707f65a1
+  subpackages:
+  - glob
+  - util
+  - watcher
+  - watcher/fswatch
+testImports: []

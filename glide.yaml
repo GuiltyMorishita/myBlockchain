@@ -1,0 +1,16 @@
+package: github.com/GuiltyMorishita/myBlockchain
+import:
+- package: github.com/deckarep/golang-set
+  version: v1.6
+- package: github.com/labstack/echo
+  version: 3.2.3
+  subpackages:
+  - middleware
+- package: github.com/labstack/gommon
+  version: 0.2.3
+  subpackages:
+  - log
+- package: github.com/satori/go.uuid
+  version: v1.1.0
+- package: gopkg.in/godo.v2
+  version: v2.0.9

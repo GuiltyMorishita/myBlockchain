@@ -6,7 +6,7 @@ func tasks(p *do.Project) {
 	p.Task("server", nil, func(c *do.Context) {
 		c.Start("main.go", do.M{"%in": "./"})
 	}).Src("**/*.go").
-		Debounce(3000)
+		Debounce(300)
 }
 
 func main() {
